@@ -21,7 +21,7 @@ namespace CompAndDel.Filters
         public FilterBlurConvolution()
         {
             this.kernel = new int[3, 3];
-            this.complement = 0;
+            this.complement = 1;
             this.divider = 9;
             for (int x = 0; x < 3; x++)
             {
