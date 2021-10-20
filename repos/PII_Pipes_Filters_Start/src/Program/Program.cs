@@ -1,6 +1,8 @@
 ﻿using System;
 using CompAndDel.Pipes;
 using CompAndDel.Filters;
+using TwitterUCU;
+
 
 namespace CompAndDel
 {
@@ -27,12 +29,17 @@ namespace CompAndDel
             FilterNegative filterNegative2 = new FilterNegative();
 
             PipeNull pipeNull2 = new PipeNull();
-            PipeSerial pipeSerialNegative2 = new PipeSerial(filterNegative2, pipeNull2);
+            PipeSerial pipeSerialNegative2 = new PipeSerial(filterNegative2, new PipeNull());
             PipeSerial pipeSerialGrey2 = new PipeSerial(greyscale2, pipeNull2);
 
             provider2.SavePicture(pipeNull2.Send(NoFilterBeer), @"BeerNull.jpg");
             provider2.SavePicture(pipeSerialNegative2.Send(NoFilterBeer), @"BeerNegativeFilter.jpg");
             provider2.SavePicture(pipeSerialGrey2.Send(NoFilterBeer), @"BeerGreyFilter.jpg");
+
+            var twitter = new TwitterImage();
+            Console.WriteLine(twitter.PublishToTwitter("I am Bill! ",@"bill2.jpg"));
+            var twitterDirectMessage = new TwitterMessage();
+            Console.WriteLine(twitterDirectMessage.SendMessage("Hola!", "249011461"));
         }
     }
 }
