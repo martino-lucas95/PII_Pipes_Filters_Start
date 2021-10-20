@@ -37,7 +37,7 @@ namespace CompAndDel
             provider2.SavePicture(pipeSerialGrey2.Send(NoFilterBeer), @"BeerGreyFilter.jpg");
 
             var twitter = new TwitterImage();
-            Console.WriteLine(twitter.PublishToTwitter("I am Bill! ",@"bill2.jpg"));
+            Console.WriteLine(twitter.PublishToTwitter("I am Bill! ",@"LukeNegativeFilter.jpg"));
             var twitterDirectMessage = new TwitterMessage();
             Console.WriteLine(twitterDirectMessage.SendMessage("Hola!", "249011461"));
         }
